@@ -1,0 +1,17 @@
+sudo su && \
+
+apt-get update -y && \
+
+apt-get install -y unzip &&\
+
+cd /usr/bin && \
+
+wget https://releases.hashicorp.com/consul/1.0.6/consul_1.0.6_linux_amd64.zip && \
+
+unzip *.zip && rm -rf *.zip && \
+
+mkdir /home/consul/{consul-ui, consul_scripts} && \
+
+cd /home/consul/consul-ui && \
+
+
