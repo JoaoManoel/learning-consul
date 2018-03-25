@@ -17,11 +17,12 @@ usage() {
 }
 
 generate_json() {
+    sed -i -- "s/__DATACENTER__/$DATACENTER/g" "$1.json"
     sed -i -- "s/__NODE_NAME__/$HOSTNAME/g" "$1.json"
     sed -i -- "s/__ENCRYPT__/$ENCRYPT/g" "$1.json"
     sed -i -- "s/__START_JOIN__/$PRIVATE_IP1/g" "$1.json"
     sed -i -- "s/__BIND_ADDR__/$PRIVATE_IP2/g" "$1.json"
-    nohup consul agent -config-dir server-config.json &
+    nohup consul agent -config-dir "$1.json" &
 }
 
 # Check to make sure the correct number of arguments is passed.
