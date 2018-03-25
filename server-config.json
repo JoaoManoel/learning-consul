@@ -6,6 +6,7 @@
   "data_dir": "/tmp/consul",
   "encrypt": "__ENCRYPT__",
   "log_level": "INFO",
+  "bootstrap_expect": 2,
   "enable_syslog": true,
   "enable_script_checks": true,
   "ui": true,

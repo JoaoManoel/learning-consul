@@ -9,9 +9,7 @@
   "enable_syslog": true,
   "enable_script_checks": true,
   "ui": true,
-  "bootstrap_expect": 2,
   "bind_addr": "__BIND_ADDR__",
-  "start_join": ["__START_JOIN__"],
   "checks": [
     {
         "id" : "check_cpu_utilization",
