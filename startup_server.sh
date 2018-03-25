@@ -25,8 +25,8 @@ fi
 DATACENTER=$1
 HOSTNAME=$2
 ENCRYPT=$3
-PRIVATE_IP1=$
-PRIVATE_IP2=$4
+PRIVATE_IP1=$4
+PRIVATE_IP2=$5
 
 sed -i -- "s/__DATACENTER__/$DATACENTER/g" server-config.json
 sed -i -- "s/__NODE_NAME__/$HOSTNAME/g" server-config.json
@@ -34,6 +34,6 @@ sed -i -- "s/__ENCRYPT__/$ENCRYPT/g" server-config.json
 sed -i -- "s/__BIND_ADDR__/$PRIVATE_IP1/g" server-config.json
 sed -i -- "s/__START_JOIN__/$PRIVATE_IP2/g" server-config.json
 
-mv scripts/* /home/consul/consul_scripts/
+cp scripts/* /home/consul/consul_scripts/
 
 nohup consul agent -config-dir ./server-config.json &

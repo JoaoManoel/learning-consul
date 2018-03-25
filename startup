@@ -10,8 +10,10 @@ wget https://releases.hashicorp.com/consul/1.0.6/consul_1.0.6_linux_amd64.zip &&
 
 unzip *.zip && rm -rf *.zip && \
 
-mkdir /home/consul/{consul-ui, consul_scripts} && \
+mkdir -p /home/consul/consul_scripts && \
 
-cd /home/consul/consul-ui && \
+cd /home/consul/
+
+
 
 
