@@ -20,8 +20,15 @@ generate_json() {
     sed -i -- "s/__DATACENTER__/$DATACENTER/g" "$1.json"
     sed -i -- "s/__NODE_NAME__/$HOSTNAME/g" "$1.json"
     sed -i -- "s/__ENCRYPT__/$ENCRYPT/g" "$1.json"
-    sed -i -- "s/__START_JOIN__/$PRIVATE_IP1/g" "$1.json"
-    sed -i -- "s/__BIND_ADDR__/$PRIVATE_IP2/g" "$1.json"
+
+    if [ "$TYPE" == "bootstrap" ];
+    then
+        sed -i -- "s/__BIND_ADDR__/$PRIVATE_IP1/g" "$1.json"
+    else
+        sed -i -- "s/__START_JOIN__/$PRIVATE_IP1/g" "$1.json"
+        sed -i -- "s/__BIND_ADDR__/$PRIVATE_IP2/g" "$1.json"
+    fi
+
     nohup consul agent -config-dir "$1.json" &
 }
 
@@ -39,7 +46,7 @@ ENCRYPT=$4
 PRIVATE_IP1=$5
 PRIVATE_IP2=$6
 
-if [  "$TYPE" == "bootstrap" -o  "$TYPE" == "server" -o "$TYPE" == "client" ]; 
+if [ "$TYPE" == "bootstrap" -o  "$TYPE" == "server" -o "$TYPE" == "client" ];
 then
     cp scripts/* /home/consul/consul_scripts/
     case $TYPE in
