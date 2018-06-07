@@ -1,5 +1,12 @@
 #!/bin/bash
 
+TYPE=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+DATACENTER=$2
+HOSTNAME=$3
+ENCRYPT=$4
+PRIVATE_IP1=$5
+PRIVATE_IP2=$6
+
 usage() {
     echo ""
     echo "${0} <datacenter> <hostname> <encrypt> <private ip 1> <private ip 2>"
@@ -38,13 +45,6 @@ then
     usage
     exit
 fi
-
-TYPE=$(echo "$1" | tr '[:upper:]' '[:lower:]')
-DATACENTER=$2
-HOSTNAME=$3
-ENCRYPT=$4
-PRIVATE_IP1=$5
-PRIVATE_IP2=$6
 
 if [ "$TYPE" == "bootstrap" -o  "$TYPE" == "server" -o "$TYPE" == "client" ];
 then
