@@ -16,21 +16,21 @@
       "id": "check_cpu_utilization",
       "notes": "Greater than 50% warn, greater than 75% fail.",
       "name": "CPU Utilization",
-      "script": "/home/consul/consul_scripts/cpu_utilization.sh",
+      "script": "/home/ubuntu/consul_scripts/cpu_utilization.sh",
       "interval": "15s"
     },
     {
       "id": "check_mem_utilization",
       "notes": "Greater than 50% warn, greater than 75% fail.",
       "name": "MEM Utilization",
-      "script": "/home/consul/consul_scripts/mem_utilization.sh",
+      "script": "/home/ubuntu/consul_scripts/mem_utilization.sh",
       "interval": "15s"
     },
     {
       "id": "check_hdd_utilization",
       "notes": "Greater than 50% warn, greater than 75% fail.",
       "name": "HDD Utilization",
-      "script": "/home/consul/consul_scripts/hdd_utilization.sh",
+      "script": "/home/ubuntu/consul_scripts/hdd_utilization.sh",
       "interval": "15s"
     }
   ]
